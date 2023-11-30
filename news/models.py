@@ -7,5 +7,8 @@ class News(models.Model):
     written_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        indexes = (HashIndex(fields=('title',)),)
+
     def __str__(self):
         return self.title
